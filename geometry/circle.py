@@ -1,8 +1,9 @@
 from typing import override
+from mesurable import Mesurable2D
 from point import Point
 from shape import Shape
 
-class Circle(Shape):
+class Circle(Shape, Mesurable2D):
     
     def __init__(self, name: str|None, center: Point, radius: float):
         super().__init__(name)
