@@ -27,6 +27,10 @@ class Point(Shape, Iterable):
     def translate(self, deltaX: float, deltaY: float):
         self.x += deltaX
         self.y += deltaY
+        
+    @classmethod
+    def from_coords(cls, x: float, y: float) -> "Point":
+        return cls(x=x, y=y)
 
 def demo_inheritance():
     pt1 = Point(x=12, y=34)
