@@ -1,3 +1,4 @@
+import math
 from typing import override
 from mesurable import Mesurable2D
 from point import Point
@@ -18,6 +19,16 @@ class Circle(Shape, Mesurable2D):
     @override
     def translate(self, deltaX: float, deltaY: float):
         self.center.translate(deltaX, deltaY)
+        
+    @override
+    def surface(self) -> float:
+        return math.pi * self.radius**2
+    
+    
+    @override 
+    def perimeter(self) -> float:
+        return 2.0 * math.pi * self.radius
+        
     
 
 if __name__ == "__main__":

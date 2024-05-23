@@ -1,5 +1,6 @@
 from typing import List
 from circle import Circle
+from mesurable import Mesurable2D
 from point import Point
 from polygon import Polygon
 from shape import Shape
@@ -23,12 +24,7 @@ shapes: List[Shape] = [
 
 for s in shapes:
     print(s)
-    if isinstance(s, Circle):
+    if isinstance(s, Mesurable2D):
         surface = s.surface()
         perimeter = s.perimeter()
         print(f"\t * surface= {surface}, perimeter={perimeter}")
-    elif isinstance(s, Polygon):
-        surface = s.surface()
-        perimeter = s.perimeter()
-        print(f"\t * surface= {surface}, perimeter={perimeter}")
-    

@@ -26,6 +26,24 @@ class Polygon(Shape, Mesurable2D):
     def translate(self, xDelta: float, yDelta: float):
         for vertice in self.vertices:
             vertice.translate(xDelta, yDelta)
+            
+    @override
+    def surface(self) -> float:
+        res = 0.0
+        prev = self.vertices[-1]
+        for current in self.vertices:
+            res += prev.x * current.y - prev.y * current.x
+            prev = current
+        return abs(res) / 2.0
+    
+    @override
+    def perimeter(self) -> float:
+        res = 0.0
+        prev = self.vertices[-1]
+        for current in self.vertices:
+            res += prev.distance(current)
+            prev = current
+        return res
     
 if __name__ == '__main__':
     pA = Point(name="A", x=1, y=2)

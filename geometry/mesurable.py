@@ -4,9 +4,9 @@ from abc import ABC, abstractmethod
 class Mesurable2D(ABC):
     
     @abstractmethod
-    def surface(self):
+    def surface(self) -> float:
         pass
     
     @abstractmethod
-    def perimeter(self):
+    def perimeter(self) -> float:
         pass
