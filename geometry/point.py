@@ -1,9 +1,11 @@
+from functools import total_ordering
 import math
 from collections.abc import Iterable, Iterator
 from typing import Self
 
 from shape import Shape
 
+@total_ordering
 class Point(Shape, Iterable):
     """represents a 2D point with its coordinates x and y
     """
@@ -20,6 +22,47 @@ class Point(Shape, Iterable):
     
     def __iter__(self) -> Iterator:
         return iter((self.x, self.y))
+    
+    # operators == and !=
+    def __eq__(self, other: object) -> bool:
+        # opt: selfand other are the same object
+        if self is other:
+            return True
+        # test on other: isinstance, type, hasattr
+        if not isinstance(other, Point):
+            return NotImplemented
+        return (self.x, self.y) == (other.x, other.y)
+    
+    # if p1 == p2 then hash(p1) == hash(p2)
+    def __hash__(self) -> int:
+        return hash((self.x, self.y))
+    
+    def __lt__(self, other: object) -> bool:
+        if not isinstance(other, Point):
+            return NotImplemented
+        return (self.x, self.y) < (other.x, other.y)
+    
+    def __add__(self, other: object) -> Self:
+        if type(other) in (int, float):
+            return Point.from_coords(self.x + other, self.y + other)
+        elif isinstance(other, Point):
+            return Point.from_coords(self.x + other.x, self.y + other.y)
+        else:
+            return NotImplemented
+        
+    def __radd__(self, other: object) -> Self:
+        return self.__add__(other)
+    
+    def __iadd__(self, other: object) -> Self:
+        if type(other) in (int, float):
+            self.x += other
+            self.y += other
+        elif isinstance(other, Point):
+            self.x += other.x
+            self.y += other.y
+        else:
+            return NotImplemented
+        return self
     
     def distance(self, p: Self) -> float:
         return math.hypot(self.x - p.x, self.y - p.y)
