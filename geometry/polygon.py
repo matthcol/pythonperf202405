@@ -8,8 +8,10 @@ class Polygon(Shape, Mesurable2D):
     """a shape with vertices (at least 3)
     """
     
-    def __init__(self, *vertices: Point, name: str|None,):
+    def __init__(self, *vertices: Point, name: str|None=None):
         super().__init__(name)
+        if len(vertices) < 3:
+            raise ValueError(f"need at leat 3 vertices: {len(vertices)}")
         self.vertices = vertices
         
     @override
@@ -56,3 +58,4 @@ if __name__ == '__main__':
     tABC.translate(1, -1)
     print(tABC)
     print(tBCA)
+    # poly = Polygon(pA, pB) # ValueError

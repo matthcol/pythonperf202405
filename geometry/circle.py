@@ -8,6 +8,9 @@ class Circle(Shape, Mesurable2D):
     
     def __init__(self, name: str|None, center: Point, radius: float):
         super().__init__(name)
+        # assert radius > 0, "radius must be > 0"
+        if radius <= 0:
+            raise ValueError(f"radius must be > 0: {radius}")
         self.center = center
         self.radius = radius
         
@@ -37,3 +40,14 @@ if __name__ == "__main__":
     print(c)
     c.translate(1, -1)
     print(c)
+    
+    # bad usages:
+    
+    # c2 = Circle("C2", center= p, radius = -1)
+    c.radius = -1
+    print(c)
+    # c.radius = "not a radius" # error for type checker
+    c.note = "beautiful circle"
+    print(c, c.note)
+    del c.radius
+    print(c) # AttributeError: 'Circle' object has no attribute 'radius'
