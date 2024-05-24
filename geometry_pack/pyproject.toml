@@ -1,0 +1,23 @@
+[project]
+name = "geometry_mc"
+version = "1.0.0"
+authors = [
+  { name="Example Author", email="author@example.com" },
+]
+description = "2D geometry library"
+readme = "Readme.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/matthcol/pythonperf202405/geometry_pack"
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-cov"
+]

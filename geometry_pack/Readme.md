@@ -15,3 +15,9 @@ pytest .\tests\test_circle.py
 pytest -v -k surface
 ```
 
+## build
+```
+pip install build
+python -m build
+```
+
