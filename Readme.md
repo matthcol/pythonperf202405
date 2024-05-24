@@ -11,3 +11,6 @@
 - virtualenv: https://virtualenv.pypa.io/en/latest/
 - conda: https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 - poetry: https://python-poetry.org/docs/managing-environments/
+
+# pattern matching
+https://peps.python.org/pep-0636/
