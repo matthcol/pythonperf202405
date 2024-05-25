@@ -21,3 +21,13 @@ pip install build
 python -m build
 ```
 
+### Links
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+
+https://realpython.com/pypi-publish-python-package/
+
+Numpy:
+https://github.com/numpy/numpy/blob/main/pyproject.toml
+

@@ -14,3 +14,8 @@
 
 # pattern matching
 https://peps.python.org/pep-0636/
+
+# binding C/C++
+https://realpython.com/python-bindings-overview/
+
+
